@@ -9,6 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 
 
 @Entity
@@ -30,6 +32,7 @@ public class Product {
 	private float price;
 	
 	@Column(name = "expiry_date")
+	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
 	private Date expiryDate;
 	
 	@Column(name = "quantity")
@@ -38,16 +41,19 @@ public class Product {
 	public Product(){
 		
 	}
+	
+	@Override
+    public String toString() {
+        return "Product{" +
+                "productId=" + productId +
+                ", productName='" + productName + '\'' +
+                ", productDescription='" + productDescription + '\'' +
+                ", price='" + price + '\'' +
+                ", expiryDate=" + expiryDate +
+                ", quantity='" + quantity + '\'' +
+                '}';
+    }
 
-	public Product(String productName, String productDescription, float price, Date expiryDate,
-			int quantity) {
-		super();
-		this.productName = productName;
-		this.productDescription = productDescription;
-		this.price = price;
-		this.expiryDate = expiryDate;
-		this.quantity = quantity;
-	}
 
 	public long getProductId() {
 		return productId;

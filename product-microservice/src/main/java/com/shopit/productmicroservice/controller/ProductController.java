@@ -31,8 +31,8 @@ public class ProductController {
 	}
 	
 	//Get products by id
-	@GetMapping("/{id]")
-	public Product getProductById(@PathVariable (value = "product_id") long productId) {
+	@GetMapping("/{id}")
+	public Product getProductById(@PathVariable (value = "id") long productId) {
 		return this.productRepository.findById(productId)
 				.orElseThrow(() -> new ResourceNotFoundException("Product Not Found "+ productId));
 	}
@@ -44,7 +44,7 @@ public class ProductController {
 	}
 	
 	//Update product
-	@PutMapping("/{id]")
+	@PutMapping("/{id}")
 	public Product updateProduct(@RequestBody Product product, @PathVariable ("id") long productId) {
 		Product existing =  this.productRepository.findById(productId)
 				.orElseThrow(() -> new ResourceNotFoundException("Product Not Found "+ productId)); 
@@ -58,7 +58,7 @@ public class ProductController {
 	}
 	
 	//Delete product
-	@DeleteMapping("/{id]")
+	@DeleteMapping("/{id}")
 	public ResponseEntity<Product> deleteProduct(@PathVariable ("id") long productId){
 		Product toDeleteProduct =  this.productRepository.findById(productId)
 				.orElseThrow(() -> new ResourceNotFoundException("Product Not Found "+ productId)); 
