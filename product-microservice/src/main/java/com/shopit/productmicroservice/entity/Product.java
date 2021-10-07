@@ -2,8 +2,10 @@ package com.shopit.productmicroservice.entity;
 
 import java.sql.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -14,51 +16,93 @@ import javax.persistence.Table;
 public class Product {
 	
 	@Id
-	@GeneratedValue
-	private int product_id;
-	private String product_name;
-	private String product_description;
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "product_id")
+	private long productId;
+	
+	@Column(name = "product_name")
+	private String productName;
+	
+	@Column(name = "product_description")
+	private String productDescription;
+	
+	@Column(name = "price")
 	private float price;
-	private Date expiry_date;
 	
+	@Column(name = "expiry_date")
+	private Date expiryDate;
 	
-	public int getProductId() {
-		return product_id;
+	@Column(name = "quantity")
+	private int quantity;
+	
+	public Product(){
+		
 	}
-	public void setProductId(int product_id) {
-		this.product_id = product_id;
+
+	public Product(String productName, String productDescription, float price, Date expiryDate,
+			int quantity) {
+		super();
+		this.productName = productName;
+		this.productDescription = productDescription;
+		this.price = price;
+		this.expiryDate = expiryDate;
+		this.quantity = quantity;
 	}
-	public String getProduct_name() {
-		return product_name;
+
+	public long getProductId() {
+		return productId;
 	}
-	public void setProduct_name(String product_name) {
-		this.product_name = product_name;
+
+	public void setProductId(long productId) {
+		this.productId = productId;
 	}
-	public String getProduct_description() {
-		return product_description;
+
+	public String getProductName() {
+		return productName;
 	}
-	public void setProduct_description(String product_description) {
-		this.product_description = product_description;
+
+	public void setProductName(String productName) {
+		this.productName = productName;
 	}
+
+	public String getProductDescription() {
+		return productDescription;
+	}
+
+	public void setProductDescription(String productDescription) {
+		this.productDescription = productDescription;
+	}
+
 	public float getPrice() {
 		return price;
 	}
+
 	public void setPrice(float price) {
 		this.price = price;
 	}
-	public Date getExpiry_date() {
-		return expiry_date;
+
+	public Date getExpiryDate() {
+		return expiryDate;
 	}
-	public void setExpiry_date(Date expiry_date) {
-		this.expiry_date = expiry_date;
+
+	public void setExpiryDate(Date expiryDate) {
+		this.expiryDate = expiryDate;
 	}
-	
-	
-	
-	
+
+	public int getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
 	}
 	
 	
 	
 	
 
+			
+	
+	
+
+}
