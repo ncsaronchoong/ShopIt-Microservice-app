@@ -2,10 +2,10 @@
 #  datasource:
 #    username: root
 #    password: Password1
-#    url: jdbc:mysql://localhost:3306/shopit?allowPublicKeyRetrieval=true&useSSL=FALSE
+#    url: jdbc:mysql://shopit.cc428i8bhwux.us-east-2.rds.amazonaws.com:3306/shopit?allowPublicKeyRetrieval=true&useSSL=FALSE
 #    driver-class-name: com.mysql.cj.jdbc.Driver
 #  jpa:
 #    show-sql: true
 #    hibernate:
-#      ddl-auto: create-drop
+#      ddl-auto: update
 #    properties.hibernate.dialect: org.hibernate.dialect.MySQL5Dialectspring

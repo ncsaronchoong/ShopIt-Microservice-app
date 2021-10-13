@@ -32,7 +32,7 @@ public class Product {
 	private float price;
 	
 	@Column(name = "expiry_date")
-	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+	@JsonFormat(pattern="dd/MM/yyyy")
 	private Date expiryDate;
 	
 	@Column(name = "quantity")
